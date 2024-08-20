@@ -77,3 +77,78 @@ print(len(List1))
 # Creating a List of numbers
 List2 = [10, 20, 14]
 print(len(List2))
+
+
+# Python program to take space
+# separated input as a string
+# split and store it to a list
+# and print the string list
+
+# input the list as string
+# string = input("Enter elements (Space-Separated): ")
+
+# split the strings and store it to a list
+# lst = string.split()
+# print(lst)
+
+# input size of the list
+# n = int(input("Enter the size of list : "))
+# store integers in a list using map,
+# split and strip functions
+# lst = list(map(int, input("Enter the integer\
+# elements:").strip().split()))[:n]
+
+# printing the list
+# print('The list is:', lst)   
+
+
+# Python program to demonstrate
+# Addition of elements in a List
+
+# Creating a List
+List = []
+print("Initial blank List: ")
+print(List)
+
+# Addition of Elements
+# in the List
+List.append(1)
+List.append(2)
+List.append(4)
+print("\nList after Addition of Three elements: ")
+print(List)
+
+# Adding elements to the List
+# using Iterator
+for i in range(1, 4):
+    List.append(i)
+print("\nList after Addition of elements from 1-3: ")
+print(List)
+
+# Adding Tuples to the List
+List.append((5, 6))
+print("\nList after Addition of a Tuple: ")
+print(List)
+
+# Addition of List to a List
+List2 = ['For', 'Geeks']
+List.append(List2)
+print("\nList after Addition of a List: ")
+print(List)
+
+
+# Python program to demonstrate 
+# Addition of elements in a List
+ 
+# Creating a List
+List = [1,2,3,4]
+print("Initial List: ")
+print(List)
+
+# Addition of Element at 
+# specific Position
+# (using Insert Method)
+List.insert(3, 12)
+List.insert(0, 'Geeks')
+print("\nList after performing Insert Operation: ")
+print(List)
