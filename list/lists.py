@@ -309,3 +309,27 @@ print(Sliced_List)
 Sliced_List = List[::-1]
 print("\nPrinting List in reverse: ")
 print(Sliced_List)
+
+
+# List Comprehension
+# Python List comprehensions are used for creating new lists from other iterables like tuples, strings, arrays, lists, etc. A list comprehension consists of brackets containing the expression, which is executed for each element along with the for loop to iterate over each element. 
+
+
+# Python program to demonstrate list
+# comprehension in Python
+
+# below list contains square of all
+# odd numbers from range 1 to 10
+
+
+odd_square = [x ** 2 for x in range(1,11) if x % 2 ==1]
+print(odd_square)
+
+# for understanding, above generation is same as,
+odd_square = []
+
+for x in range(1,11):
+    if x % 2 == 1:
+        odd_square.append(x**2)
+        
+print(odd_square)
