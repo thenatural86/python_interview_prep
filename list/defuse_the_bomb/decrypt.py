@@ -18,3 +18,16 @@ def decrypt(code, k):
     
     # initialize result to be an array of 0's of n length
     result = [0] * n
+    
+    # return an array of 0's
+    if k == 0:
+        return result
+    
+    # loop through each element in the code 
+    for i in range(n):
+        if k > 0:
+            result[i] = sum(code[(i + j) % n] for j in range(1,k + 1))
+        else:
+            result[i] = sum(code[(i + j) % n] for j in range(k,0))
+            
+    return result
