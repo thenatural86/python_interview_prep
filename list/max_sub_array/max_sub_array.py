@@ -19,7 +19,7 @@
 # Input: nums = [5,4,-1,7,8]
 # Output: 23
 # Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
- 
+
 
 def max_sub_array(nums):
     # keeps track of the maximum sum found so far.
