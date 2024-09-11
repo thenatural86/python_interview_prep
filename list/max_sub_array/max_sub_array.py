@@ -1,8 +1,8 @@
-# Given an integer array nums, find the 
+# Given an integer array nums, find the
 # subarray
 #  with the largest sum, and return its sum.
 
- 
+
 
 # Example 1:
 
@@ -20,14 +20,16 @@
 # Output: 23
 # Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
+# keeps track of the maximum sum found so far.
+# keeps track of the sum of the current subarray.
+# current_sum = nums[0]
+
+
 
 def max_sub_array(nums):
-    # keeps track of the maximum sum found so far.
     max_sum = nums[0]
-    # keeps track of the sum of the current subarray.
-    # current_sum = nums[0]
     current_sum = 0
-    
+
     for num in nums:
         if current_sum < 0:
             current_sum = 0
