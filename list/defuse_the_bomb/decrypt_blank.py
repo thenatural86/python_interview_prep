@@ -9,6 +9,6 @@ def decrypt(code, k):
         if k > 0:
             result[i] = sum(code[(i + j) % n] for j in range(1, k + 1))
         else:
-            result[i] = sum(code[(i + j) % n] for j in range(k, 0))
+            result[i] = sum(code[(i + j) % n] for j in range(1, k + 1))
 
     return result
