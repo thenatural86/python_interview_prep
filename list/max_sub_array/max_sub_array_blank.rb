@@ -4,7 +4,7 @@ def max_sub_array(nums)
 
   nums[1..-1].each do |num|
     current_sum = (num, current_sum + num).max
-    max_sum = (current_sum, max_sum).max
+    max_sum = (max_sum, current_sum).max
   end
 
   return max_sum

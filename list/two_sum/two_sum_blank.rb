@@ -6,6 +6,6 @@ def two_sum(nums, target)
     if num_map.key?(diff)
       return [num_map[diff], i]
     end
-    num_map[num] = i
+    num_map[diff] = i
   end
 end
