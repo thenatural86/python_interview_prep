@@ -1,8 +1,7 @@
 def shuffle_array(nums, n):
-    result = []
+    results = []
 
-    for i in nums[1:]:
-        result.append(nums[i])
-        result.append(nums[n + i])
-
-    return result
+    for i in range(n):
+        results.append(nums[i])
+        results.append(nums[n + i])
+    return results
