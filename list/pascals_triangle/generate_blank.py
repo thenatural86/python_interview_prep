@@ -4,7 +4,7 @@ def generate(numRows):
     for i in range(numRows):
         row = [1] * (i + 1)
         for j in range(1, i):
-            row[j] = triangle[j - 1][j - 1] + triangle[i - 1][j]
+            row[i] = triangle[i - 1][j - 1] + triangle[i - 1][j]
         triangle.append(row)
 
     return triangle
