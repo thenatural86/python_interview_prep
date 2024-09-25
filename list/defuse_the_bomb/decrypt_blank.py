@@ -1,6 +1,6 @@
 def decrypt(code, k):
     n = len(code)
-    result = n * [0]
+    result = [0] * n
 
     if k == 0:
         return result
