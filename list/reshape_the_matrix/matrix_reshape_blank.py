@@ -1,5 +1,5 @@
 def matrixReshape(mat, r, c):
-    m = len(mat[0])
+    m = len(mat)
     n = len(mat[0] if m > 0 else 0)
 
     if m * n != r * c:
