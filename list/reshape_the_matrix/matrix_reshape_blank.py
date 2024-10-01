@@ -5,11 +5,11 @@ def matrixReshape(mat, r, c):
     if m * n != r * c:
         return mat
 
-    flat_mat = [num for row in mat for num in row]
+    flat_list = [num for row in mat for num in row]
 
     new_mat = []
 
     for i in range(r):
-        new_mat.append(flat_mat[i * c: (i + 1) * c])
+        new_mat.append(flat_list[i * c: (i + 1) * c])
 
     return new_mat
