@@ -8,6 +8,7 @@ class ListNode:
 
 class MyHashMap(object):
 
+
     def __init__(self):
         self.map = [ListNode() for i in range(1000)]
 
