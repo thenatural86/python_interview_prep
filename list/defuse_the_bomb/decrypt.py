@@ -29,33 +29,3 @@ def decrypt(code, k):
             result[i] = sum(code[(i + j) % n] for j in range(k,0))
 
     return result
-
-
-def decrypt_verbose(code, k):
-
-    n = len(code)
-    result = [0] * n
-
-    if k == 0:
-        return result
-
-
-    for i in range(n):
-        if k > 0:
-            # initialize sum for positive k
-            current_sum = 0
-            # sum the next k elements in the circular array
-            for j in range(1, k + 1):
-                circular_index = (i + j) % n
-                current_sum += code[circular_index]
-        else:
-            # initialize sum for negative k
-            current_sum = 0
-            # sum the previous k elements in the circular array
-            for j in range(k,0):
-                circular_index = (i + j) % n
-                current_sum += code[circular_index]
-
-        # store the calculated sum in the result array
-        result[i] = current_sum
-    return result
