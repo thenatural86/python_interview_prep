@@ -14,11 +14,11 @@ class MyHashMap(object):
     def hash(self, key):
         return key % len(self.map)
 
-    def put(self, key, val):
+    def put(self, key, value):
         cur = self.map[self.hash(key)]
 
         while cur.next:
-            cur.next.key == key
-            cur.next.val = val
-            return
-        cur = cur.next
+            if cur.next.key == key:
+                cur.next.val = value
+                return
+            cur = cur.next
