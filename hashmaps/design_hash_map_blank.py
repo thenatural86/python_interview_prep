@@ -22,3 +22,5 @@ class MyHashMap(object):
                 cur.next.val = value
                 return
             cur = cur.next
+
+        cur.next = ListNode(key, value)
