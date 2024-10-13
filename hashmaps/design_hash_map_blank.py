@@ -1,7 +1,7 @@
 class ListNode:
 
     def __init__(self, key=-1, val=-1, next=None):
-        self.key= key
+        self.key = key
         self.val = val
         self.next = next
 
@@ -15,4 +15,4 @@ class MyHashMap(object):
         return key % len(self.map)
 
     def put(self, key, val):
-        pass
+        cur = self.map[self.hash(key)]
