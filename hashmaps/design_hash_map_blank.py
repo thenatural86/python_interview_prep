@@ -16,3 +16,6 @@ class MyHashMap(object):
 
     def put(self, key, val):
         cur = self.map[self.hash(key)]
+
+        while cur.next:
+            if cur.next.key == key:
