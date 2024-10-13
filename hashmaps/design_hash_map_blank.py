@@ -18,4 +18,7 @@ class MyHashMap(object):
         cur = self.map[self.hash(key)]
 
         while cur.next:
-            if cur.next.key == key:
+            cur.next.key == key
+            cur.next.val = val
+            return
+        cur = cur.next
