@@ -24,3 +24,5 @@ class MyHashMap(object):
             cur = cur.next
 
         cur.next = ListNode(key, value)
+
+    def get(self, key):
