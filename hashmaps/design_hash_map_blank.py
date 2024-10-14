@@ -26,3 +26,4 @@ class MyHashMap(object):
         cur.next = ListNode(key, value)
 
     def get(self, key):
+        cur = self.map[self.hash(key)].next
