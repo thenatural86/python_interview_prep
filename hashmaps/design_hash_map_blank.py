@@ -27,3 +27,5 @@ class MyHashMap(object):
 
     def get(self, key):
         cur = self.map[self.hash(key)].next
+
+        while cur:
