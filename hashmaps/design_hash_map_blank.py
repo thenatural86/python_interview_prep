@@ -35,7 +35,7 @@ class MyHashMap(object):
 
         return -1
 
-    def remove(self,key):
+    def remove(self, key):
         cur = self.map[self.hash(key)]
 
         while cur and cur.next:
