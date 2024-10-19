@@ -42,4 +42,5 @@ class MyHashMap(object):
             if cur.next.key == key:
                 cur.next = cur.next.next
                 return
+
             cur = cur.next
