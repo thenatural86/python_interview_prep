@@ -24,3 +24,13 @@ class MyHashMap(object):
             cur = cur.next
 
         cur.next = ListNode(key, value)
+
+    def get(self, key):
+        cur = self.map[self.hash(key)].next
+
+        while cur:
+            if cur.key == key:
+                return cur.val
+            cur = cur.next
+
+        return -1
