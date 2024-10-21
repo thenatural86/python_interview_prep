@@ -19,7 +19,7 @@ class MyHashMap(object):
 
         while cur.next:
             if cur.next.key == key:
-                cur.next.val = value
+                cur.next.val =value
                 return
             cur = cur.next
 
@@ -32,6 +32,7 @@ class MyHashMap(object):
             if cur.key == key:
                 return cur.val
             cur = cur.next
+
         return -1
 
     def remove(self, key):
@@ -41,4 +42,4 @@ class MyHashMap(object):
             if cur.next.key == key:
                 cur.next = cur.next.next
                 return
-            cur = cur.next
+        cur = cur.next
