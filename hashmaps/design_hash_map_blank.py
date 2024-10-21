@@ -25,7 +25,7 @@ class MyHashMap(object):
 
         cur.next = ListNode(key, value)
 
-    def get(self, key):
+    def put(self, key):
         cur = self.map[self.hash(key)].next
 
         while cur:
@@ -42,4 +42,5 @@ class MyHashMap(object):
             if cur.next.key == key:
                 cur.next = cur.next.next
                 return
-            cur = cur.next
+
+        cur = cur.next
