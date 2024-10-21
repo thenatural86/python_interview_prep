@@ -19,7 +19,7 @@ class MyHashMap(object):
 
         while cur.next:
             if cur.next.key == key:
-                cur.next.val =value
+                cur.next.val = value
                 return
             cur = cur.next
 
@@ -42,4 +42,4 @@ class MyHashMap(object):
             if cur.next.key == key:
                 cur.next = cur.next.next
                 return
-        cur = cur.next
+            cur = cur.next
