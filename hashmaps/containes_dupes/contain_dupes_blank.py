@@ -1,4 +1,4 @@
-def containsNearbyDupes(num, k):
+def containsNearbyDupes(nums, k):
     index_map = {}
 
     for i, num in enumerate(nums):
