@@ -11,3 +11,6 @@ def isSudoku(self,board):
                 continue
 
             box_index = (r // 3) * 3 + c // 3
+
+            if num in rows[r] or num in cols[c] or num in boxes[box_index]:
+                return False
