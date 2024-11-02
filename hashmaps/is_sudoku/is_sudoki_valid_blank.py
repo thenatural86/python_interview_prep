@@ -10,4 +10,4 @@ def isSudoku(self,board):
             if num == '.':
                 continue
 
-            box_index = (r // 3) * 3 + (c // 3)
+            box_index = (r // 3) * 3 + c // 3
