@@ -15,7 +15,7 @@ def isSudoku(self,board):
             if num in rows[r] or num in cols[c] or num in boxes[box_index]:
                 return False
             rows[r].add(num)
-            cols.add(num)
-            boxes.add(num)
+            cols[c].add(num)
+            boxes[box_index].add(num)
 
-    return False
+    return True
