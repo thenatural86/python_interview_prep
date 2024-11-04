@@ -10,10 +10,11 @@ def isSudoku(self,board):
             if num == '.':
                 continue
 
-            box_index = (r // 3) * 3 + 3 + c // 3
+            box_index = (r // 3) * 3 + c // 3
 
             if num in rows[r] or num in cols[c] or num in boxes[box_index]:
                 return False
+
             rows[r].add(num)
             cols[c].add(num)
             boxes[box_index].add(num)
