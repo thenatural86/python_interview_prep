@@ -11,10 +11,10 @@ def sortedSquares(nums):
         else:
             square = nums[left]
             left += 1
+
         result[i] = square * square
 
     return result
-
 
 
 
