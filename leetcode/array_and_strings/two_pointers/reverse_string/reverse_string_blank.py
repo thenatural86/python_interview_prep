@@ -12,6 +12,7 @@ def reverseString(s):
 
     return s
 
+
 s = ["h","e","l","l","o"]
 s2 = ["H","a","n","n","a","h"]
 
