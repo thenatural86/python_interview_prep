@@ -5,7 +5,7 @@ def reverseString(s):
     while left < right:
         temp = s[left]
         s[left] = s[right]
-        s[right] = temp
+        s[right] = s[left]
 
         left += 1
         right -= 1
