@@ -5,12 +5,13 @@ def reverseString(s):
     while left < right:
         temp = s[left]
         s[left] = s[right]
-        s[right] = s[left]
+        s[right] = temp
 
         left += 1
         right -= 1
 
     return s
+
 
 
 s = ["h","e","l","l","o"]
