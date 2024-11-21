@@ -4,7 +4,7 @@ def sortedSquares(nums):
     left = 0
     right = n - 1
 
-    for i in range(n):
+    for i in range(n - 1, -1, -1):
         if abs(nums[left]) < abs(nums[right]):
             square = nums[right]
             right -= 1
