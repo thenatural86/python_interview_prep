@@ -1,4 +1,4 @@
-def reverseString(self, s: List[str]) -> None:
+def reverseString(s ):
         left = 0
         right = len(s) - 1
 
