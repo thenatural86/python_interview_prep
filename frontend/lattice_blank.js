@@ -1,76 +1,14 @@
-// const SURVEY_ID = '17feca64-e756-4f15-beac-1dbbb293c227'
-// const QUESTIONS =
-//   'https://interview-data-mock-api.s3.us-west-2.amazonaws.com/survey_questions.json'
-
-const SCORES =
-  'https://interview-data-mock-api.s3.us-west-2.amazonaws.com/survey_responses.json'
-
-async function printSurveyReport(surveyId) {
-  const data = await fetch(
-    'https://interview-data-mock-api.s3.us-west-2.amazonaws.com/surveys.json'
-  )
-  const surveys = await data.json()
-  const question_data = await fetch(QUESTIONS)
-  const questions_json = await question_data.json()
-  //   const scores_data = await fetch(SCORES)
-  //   const scores_json = await scores_data.json()
-  //   console.log(scores_json)
-  firstSurvey(surveys)
-  questionPrompts(questions_json, SURVEY_ID)
-  //   surveyAverage(scores_json, questions_json)
-}
-
-// const firstSurvey = (surveys) => {
-//   const survey = surveys.find((survey) => survey.id === SURVEY_ID)
-//   const name = survey.name
-//   console.log(name)
-//   return name
-// }
-
-// const questionPrompts = (surveys, SURVEY_ID) => {
-//   console.log(surveys)
-
-//   surveys.map((survey) => {
-//     if (survey.survey_id === SURVEY_ID) {
-//       console.log(survey.prompt)
-//     }
-//   })
-// }
-
-// code that associates each question with a score average
-const surveyAverage = (scores, questions_json) => {
-  questions_json
-  // console.log("SCORES", scores)
-  // console.log("QUESTIONS", questions_json)\
-  const questionsObj = {}
-  scores.map((score) => {
-    questions_json.map((question, score) => {
-      if (question.id === score.question_id) {
-        questionObj.question = score
-      }
-      return questionsObj
-    })
-  })
-  // scores.map((score) => {
-  //   questions_json.forEach((question) => {
-  //     console.log(question)
-  //   })
-  // })
-}
-
-;(async function run() {
-  await printSurveyReport(SURVEY_ID)
-})()
-
-// *********************************
-
 const SURVEY_ID = '17feca64-e756-4f15-beac-1dbbb293c227'
 
 const QUESTIONS =
   'https://interview-data-mock-api.s3.us-west-2.amazonaws.com/survey_questions.json'
 
-async function printSurveyReport(surveyId) {
+const SCORES =
+  'https://interview-data-mock-api.s3.us-west-2.amazonaws.com/survey_responses.json'
+
+async function printSurveyReport() {
   try {
+    // Fetch survey data
     const surveyResponse = await fetch(
       'https://interview-data-mock-api.s3.us-west-2.amazonaws.com/surveys.json'
     )
@@ -84,6 +22,13 @@ async function printSurveyReport(surveyId) {
     const questionResponse = await fetch(QUESTIONS)
     const questions = await questionResponse.json()
     questionPrompts(questions)
+
+    // Fetch survey scores
+    const scoresResponse = await fetch(SCORES)
+    const scores = await scoresResponse.json()
+
+    // Calculate and print the average scores for the survey
+    surveyAverage(scores, questions)
   } catch (error) {
     console.error('Error fetching survey data:', error)
   }
@@ -91,8 +36,12 @@ async function printSurveyReport(surveyId) {
 
 const firstSurvey = (surveys) => {
   const survey = surveys.find((survey) => survey.id === SURVEY_ID)
-  console.log(survey.name)
-  //   return survey.name // Return the survey name
+
+  if (survey) {
+    console.log('Survey Name:', survey.name)
+  } else {
+    console.error(`Survey with ID ${SURVEY_ID} not found.`)
+  }
 }
 
 const questionPrompts = (questions) => {
@@ -102,10 +51,51 @@ const questionPrompts = (questions) => {
     (question) => question.survey_id === SURVEY_ID
   )
 
-  if (relevantQuestions.length === 0) {
-    console.log(`No questions found for survey ID: ${SURVEY_ID}`)
-  } else {
+  if (relevantQuestions.length > 0) {
     console.log('Question Prompts:')
     relevantQuestions.forEach((question) => console.log(question.prompt))
+  } else {
+    console.log(`No questions found for survey ID: ${SURVEY_ID}`)
   }
 }
+
+const surveyAverage = (scores, questions) => {
+  // Filter questions for the current survey
+  const relevantQuestions = questions.filter(
+    (question) => question.survey_id === SURVEY_ID
+  )
+
+  // Create a map of question IDs to prompts
+  const questionMap = {}
+  relevantQuestions.forEach((question) => {
+    questionMap[question.id] = question.prompt
+  })
+
+  // Filter scores for relevant questions and calculate averages using reduce
+  const scoresByQuestion = scores.reduce((acc, score) => {
+    if (questionMap[score.question_id]) {
+      if (!acc[score.question_id]) {
+        acc[score.question_id] = { total: 0, count: 0 }
+      }
+      acc[score.question_id].total += score.score
+      acc[score.question_id].count += 1
+    }
+    return acc
+  }, {})
+
+  // Print results
+  console.log('Average Scores for Survey Questions:')
+  Object.entries(scoresByQuestion).forEach(([questionId, data]) => {
+    const average = data.total / data.count
+    console.log(
+      `Question: ${questionMap[questionId]} | Average Score: ${average.toFixed(
+        2
+      )}`
+    )
+  })
+}
+
+// Execute the function
+;(async function run() {
+  await printSurveyReport()
+})()
