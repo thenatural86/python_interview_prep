@@ -1,4 +1,5 @@
 def reverseString(s):
+
     left = 0
     right = len(s) - 1
 
@@ -11,6 +12,8 @@ def reverseString(s):
         right -= 1
 
     return s
+
+
 s = ["h","e","l","l","o"]
 s2 = ["H","a","n","n","a","h"]
 
