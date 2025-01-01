@@ -1,4 +1,5 @@
 def sortedSquares(nums):
+
     n = len(nums)
     result = [0] * n
     left = 0
@@ -14,6 +15,7 @@ def sortedSquares(nums):
         result[i] = square * square
 
     return result
+
 
 nums = [-4,-1,0,3,10]
 
