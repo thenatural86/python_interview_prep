@@ -45,3 +45,28 @@ function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
 
   return <input value={query} onChange={(e) => setQuery(e.target.value)} />
 }
+
+// Scenario 3
+//  Extract types into interfaces for reusability and maintainability.
+//  Use conditional checks or optional chaining to handle null or undefined values.
+//  Default props can also be used to provide a fallback value for products.
+interface Product {
+  id: number
+  name: string
+}
+
+type ProductListProps = {
+  products: Product[] | null | undefined
+}
+
+const ProductList = ({ products }: ProductListProps) => {
+  if (!products) return <div>No products available.</div> // Handle null or undefined
+
+  return (
+    <ul>
+      {products.map((product) => (
+        <li key={product.id}>{product.name}</li>
+      ))}
+    </ul>
+  )
+}
