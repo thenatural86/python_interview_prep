@@ -1,4 +1,4 @@
-import { React } from 'react'
+import { useState, useEffect, React } from 'react'
 
 // Scenario 1
 // Use React.CSSProperties for style typing
@@ -26,4 +26,22 @@ export default function App() {
       style={{ color: 'blue', fontSize: '16px' }}
     />
   )
+}
+
+// Scenario 2
+//  Debouncing delays the API call, reducing the number of re-renders.
+//  Clears the timeout before setting a new one, ensuring only the latest query executes.
+
+function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
+  const [query, setQuery] = useState('')
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      onSearch(query) // Calls search function after a delay
+    }, 300) // 300ms debounce
+
+    return () => clearTimeout(handler) // Cleanup on unmount or re-run
+  }, [query, onSearch])
+
+  return <input value={query} onChange={(e) => setQuery(e.target.value)} />
 }
