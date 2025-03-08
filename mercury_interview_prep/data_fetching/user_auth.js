@@ -41,7 +41,17 @@ const failedLogin = users.reduce((acc, person) => {
   return acc
 }, {})
 
-console.log(failedLogin)
-// Identify users who had consecutive failed attempts before a successful login.
+// console.log(failedLogin)
 
 // Find the most recent login attempt per user (by timestamp).
+const mostRecentLoginAttempt = users.reduce((acc, person) => {
+  const { user, timestamp } = person
+
+  //   if the user does not exist OR new timestamp is more recent replace the existing entry
+  if (!acc[user] || new Date(timestamp) > new Date(acc[user].timestamp)) {
+    acc[user] = { user, timestamp }
+    return acc
+  }
+}, {})
+
+console.log(mostRecentLoginAttempt)
