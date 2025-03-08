@@ -23,6 +23,11 @@ const filterTransactions = transactions.filter((transaction) => {
 console.log('Filtered Transactions', filterTransactions)
 
 // find the customer with the highest total
-const highestTotal = totalTransactions
+const highestTotal = Object.entries(totalTransactions).reduce(
+  (acc, [customer, amount]) => {
+    return amount > acc.amount ? { customer, amount } : acc
+  },
+  { customer: null, amount: 0 }
+)
 
-console.log(Object.entries(totalTransactions))
+console.log('Highest Total', highestTotal)
