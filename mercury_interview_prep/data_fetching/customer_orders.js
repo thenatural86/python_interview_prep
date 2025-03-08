@@ -13,3 +13,13 @@ const sortedOrders = [...orders].sort(
 )
 
 // console.log('SORTED ORDERS', sortedOrders)
+
+// extract customer names and their total purchase amounts
+const customerTotals = orders.map((order) => {
+  return {
+    customer: order.customer.name,
+    totalSpend: order.totalAmount,
+  }
+})
+
+console.log(customerTotals)
