@@ -41,7 +41,7 @@ const failedLogin = users.reduce((acc, person) => {
   return acc
 }, {})
 
-// console.log(failedLogin)
+console.log(failedLogin)
 
 // Find the most recent login attempt per user (by timestamp).
 const mostRecentLoginAttempt = users.reduce((acc, person) => {
