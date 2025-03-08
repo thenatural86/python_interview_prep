@@ -32,4 +32,21 @@ const categoryRevenue = orders.reduce((acc, order) => {
   return acc
 }, {})
 
-console.log(categoryRevenue)
+// console.log(categoryRevenue)
+
+// get the top spender
+const totalSpending = orders.reduce((acc, order) => {
+  const { id, name } = order.customer
+  acc[id] = acc[id] || 0 + order.totalAmount
+  return acc
+}, {})
+
+const highestSpender = Object.entries(totalSpending)
+  .map(([customerId, totalSpent]) => ({
+    customerId,
+    totalSpent,
+    name: orders.find((order) => order.customer.id == customerId).customer.name,
+  }))
+  .sort((a, b) => b.totalSpent - a.totalSpent)[0]
+
+console.log(highestSpender)
