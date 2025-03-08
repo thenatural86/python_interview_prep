@@ -5,7 +5,16 @@ const inventory = [
   { id: 104, name: 'Desk Chair', category: 'Furniture', stock: 2, price: 300 },
 ]
 
-// find all products that are low in stock
+// find all products that are low in stock (less than 5 units)
+
+const lowInventory = inventory.reduce(
+  (acc, product) => {
+    const { name, stock } = product
+    return product.stock < 5 ? { name, stock } : null
+  },
+  { name: null, stock: 0 }
+)
+console.log('LOW INVENTORY', lowInventory)
 
 // group products by category
 
