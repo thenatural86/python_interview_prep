@@ -17,6 +17,17 @@ const lowInventory = inventory.reduce(
 console.log('LOW INVENTORY', lowInventory)
 
 // group products by category
+const groupedProducts = inventory.reduce((acc, product) => {
+  const { category, name } = product
+  // if the category doesn't exist in the accumulator create an empty array
+  if (!acc[category]) {
+    acc[category] = []
+  }
+  //   if it does exist then push name into the correct category
+  acc[category].push(name)
+  return acc
+}, {})
+console.log('GROUPED PRODUCTS', groupedProducts)
 
 // calculate total inventory value per category
 
