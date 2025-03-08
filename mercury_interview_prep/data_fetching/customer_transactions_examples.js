@@ -1,4 +1,4 @@
-const data = [
+const transactions = [
   { id: 1, customer: 'Alice', amount: 50, date: '2025-02-01' },
   { id: 2, customer: 'Bob', amount: 20, date: '2025-02-02' },
   { id: 3, customer: 'Alice', amount: 30, date: '2025-02-03' },
@@ -7,22 +7,22 @@ const data = [
 ]
 
 // how can I compute a customers total transactions
-const aggregatedData = data.reduce((acc, transactions) => {
+const totalTransactions = transactions.reduce((acc, transactions) => {
   const { customer, amount } = transactions
   acc[customer] = (acc[customer] || 0) + amount
   return acc
 }, {})
-console.log(aggregatedData)
-
-// array.reduce((accumulator, currentValue, index, array) => {
-//   // Process the current value and update the accumulator
-//   return updatedAccumulator
-// }, initialValue)
+console.log('Total Transactions', totalTransactions)
 
 // filter transactions under $50
-const filterTransactions = data.filter((transaction) => {
+const filterTransactions = transactions.filter((transaction) => {
   const filteredTransactions = transaction.amount > 50
   return filteredTransactions
 })
 
-console.log(filterTransactions)
+console.log('Filtered Transactions', filterTransactions)
+
+// find the customer with the highest total
+const highestTotal = totalTransactions
+
+console.log(Object.entries(totalTransactions))
