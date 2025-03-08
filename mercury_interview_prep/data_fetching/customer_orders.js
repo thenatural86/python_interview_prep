@@ -22,4 +22,14 @@ const customerTotals = orders.map((order) => {
   }
 })
 
-console.log(customerTotals)
+// console.log(customerTotals)
+
+// calculate total revenue per product category
+const categoryRevenue = orders.reduce((acc, order) => {
+  order.items.map(({ category, price, quantity }) => {
+    acc[category] = (acc[category] || 0) + price * quantity
+  })
+  return acc
+}, {})
+
+console.log(categoryRevenue)
