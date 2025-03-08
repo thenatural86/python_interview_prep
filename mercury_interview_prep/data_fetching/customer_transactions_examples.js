@@ -14,7 +14,15 @@ const aggregatedData = data.reduce((acc, transactions) => {
 }, {})
 console.log(aggregatedData)
 
-array.reduce((accumulator, currentValue, index, array) => {
-  // Process the current value and update the accumulator
-  return updatedAccumulator
-}, initialValue)
+// array.reduce((accumulator, currentValue, index, array) => {
+//   // Process the current value and update the accumulator
+//   return updatedAccumulator
+// }, initialValue)
+
+// filter transactions under $50
+const filterTransactions = data.filter((transaction) => {
+  const filteredTransactions = transaction.amount > 50
+  return filteredTransactions
+})
+
+console.log(filterTransactions)
