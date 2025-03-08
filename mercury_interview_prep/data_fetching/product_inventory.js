@@ -29,6 +29,18 @@ const groupedProducts = inventory.reduce((acc, product) => {
 }, {})
 console.log('GROUPED PRODUCTS', groupedProducts)
 
-// calculate total inventory value per category
+// calculate total inventory value per category: (sum of price × stock)
+const totalValue = inventory.reduce((acc, product) => {
+  const { name, category, stock, price } = product
+  const productValue = stock * price
 
+  if (!acc[category]) {
+    acc[category] = 0
+  }
+
+  acc[category] += productValue
+
+  return acc
+}, {})
+console.log(totalValue)
 // sort products by price in descending order
