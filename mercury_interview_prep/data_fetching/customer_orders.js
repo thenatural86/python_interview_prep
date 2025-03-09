@@ -92,11 +92,31 @@ const customerSpending = orders.reduce((acc, order) => {
   acc[id] += totalAmount
   return acc
 }, {})
-console.log(customerSpending)
+// console.log(customerSpending)
 
 const aboveThousand = Object.entries(customerSpending)
   .filter(([_, totalSpent]) => totalSpent > 1000)
   .map(([id, totalSpent]) => ({ id, totalSpent }))
-console.log(aboveThousand)
+// console.log(aboveThousand)
 
 //  Compute average order value per customer
+const avgOrderPerCustomer = orders.reduce((acc, order) => {
+  const { customer, totalAmount } = order
+  const { id } = customer
+  if (!acc[id]) {
+    acc[id] = { totalSpent: 0, orderCount: 0 }
+  }
+  acc[id].totalSpent += totalAmount
+  acc[id].orderCount += 1
+  return acc
+}, {})
+
+const calculateAvg = Object.entries(avgOrderPerCustomer).map(
+  ([id, { totalSpent, orderCount }]) => ({
+    id,
+    customerAvg: totalSpent / orderCount,
+  })
+)
+
+console.log('AVERAGE ORDER PER CUSTOMER', avgOrderPerCustomer)
+console.log('CALCULATE AVERAGE', calculateAvg)
