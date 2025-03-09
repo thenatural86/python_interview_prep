@@ -11,7 +11,14 @@ console.log('PENDING ORDERS', pendingOrders)
 
 const completedOrdersRevenue = data
   .filter((order) => order.status !== 'pending')
-  .reduce((acc, order) => acc + order.totalAmount, 0)
+  // accumulate a single value
+  .reduce(
+    (acc, order) =>
+      // Adds the totalAmount of the current order to the running total
+      acc + order.totalAmount,
+    //   This is the initial value of acc
+    0
+  )
 
 console.log('COMPLETED ORDERS REVENUE', completedOrdersRevenue)
 
