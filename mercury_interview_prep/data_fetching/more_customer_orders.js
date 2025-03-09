@@ -86,4 +86,13 @@ console.log('MULTIPLE ORDERS', resultMultipleOrders)
 const mostFrequentProduct = Object.values(timesItemPurchased).sort(
   (a, b) => b.quantity - a.quantity
 )[0]
-console.log('MOST FRQUENT PRODUCT', mostFrequentProduct)
+console.log('MOST FREQUENT PRODUCT', mostFrequentProduct)
+
+// 8️⃣ Calculate the monthly revenue trend (total revenue per month)
+const revenueByMonth = data.reduce((acc, order) => {
+  const month = order.orderDate.slice(0, 7) // Extract YYYY-MM
+  acc[month] = (acc[month] || 0) + order.totalAmount
+  return acc
+}, {})
+
+console.log('REVENUE BY MONTH', revenueByMonth)
