@@ -79,9 +79,24 @@ const customersWithMultiplePending = Object.entries(pendingOrders)
   .filter(([_, count]) => count > 1)
   .map(([customer]) => customer.id)
 
-console.log(pendingOrders)
-console.log(customersWithMultiplePending)
+// console.log(pendingOrders)
+// console.log(customersWithMultiplePending)
 
 //  Filter customers who have spent above $1000
+const customerSpending = orders.reduce((acc, order) => {
+  const { totalAmount, customer } = order
+  const { id } = customer
+  if (!acc[id]) {
+    acc[id] = 0
+  }
+  acc[id] += totalAmount
+  return acc
+}, {})
+console.log(customerSpending)
+
+const aboveThousand = Object.entries(customerSpending)
+  .filter(([_, totalSpent]) => totalSpent > 1000)
+  .map(([id, totalSpent]) => ({ id, totalSpent }))
+console.log(aboveThousand)
 
 //  Compute average order value per customer
