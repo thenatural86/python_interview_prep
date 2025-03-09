@@ -65,6 +65,19 @@ const productFrequency = orders.reduce((acc, order) => {
 const mostFrequentPurchase = Object.values(productFrequency).sort((a, b) => {
   return b.quantity - a.quantity
 })[0]
-console.log(mostFrequentPurchase)
+// console.log(mostFrequentPurchase)
 
 // Find customers with multiple pending orders
+const pendingOrders = orders
+  .filter((order) => order.status === 'pending')
+  .reduce((acc, order) => {
+    acc[order.customer.id] = (acc[order.customer.id] || 0) + 1
+    return acc
+  }, {})
+
+const customersWithMultiplePending = Object.entries(pendingOrders)
+  .filter(([_, count]) => count > 1)
+  .map(([customer]) => customer.id)
+
+console.log(pendingOrders)
+console.log(customersWithMultiplePending)
