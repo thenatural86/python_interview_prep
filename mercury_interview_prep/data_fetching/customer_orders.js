@@ -49,4 +49,22 @@ const highestSpender = Object.entries(totalSpending)
   }))
   .sort((a, b) => b.totalSpent - a.totalSpent)[0]
 
-console.log(highestSpender)
+// console.log(highestSpender)
+
+// Find most frequently purchased product
+const productFrequency = orders.reduce((acc, order) => {
+  order.items.forEach(({ productId, name, quantity }) => {
+    if (!acc[productId]) {
+      acc[productId] = { name, quantity: 0 }
+    }
+    acc[productId].quantity += quantity
+  })
+  return acc
+}, {})
+
+const mostFrequentPurchase = Object.values(productFrequency).sort((a, b) => {
+  return b.quantity - a.quantity
+})[0]
+console.log(mostFrequentPurchase)
+
+// Find customers with multiple pending orders
