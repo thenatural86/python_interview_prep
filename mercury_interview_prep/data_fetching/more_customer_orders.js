@@ -96,3 +96,19 @@ const revenueByMonth = data.reduce((acc, order) => {
 }, {})
 
 console.log('REVENUE BY MONTH', revenueByMonth)
+
+// 9️⃣ Find customers who have pending orders
+const customersWithPending = [
+  ...new Set(
+    data
+      .filter((order) => order.status === 'pending')
+      .map((order) => order.customer.name)
+  ),
+]
+console.log('CUSTOMERS WITH PENDING ORDERS', customersWithPending)
+
+// 🔟 Predict next month’s revenue using a simple moving average of the last 3 months
+const revenueArray = Object.values(revenueByMonth)
+const movingAverage =
+  revenueArray.slice(-3).reduce((acc, val) => acc + val, 0) / 3
+console.log(`Predicted Revenue for Next Month: $${movingAverage.toFixed(2)}`)
