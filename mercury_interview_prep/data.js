@@ -1,0 +1,156 @@
+export const data = [
+  {
+    orderId: 1,
+    customer: {
+      id: 'C123',
+      name: 'Alice',
+      email: 'alice@example.com',
+      location: 'NY',
+    },
+    items: [
+      {
+        productId: 'P100',
+        name: 'Laptop',
+        category: 'Electronics',
+        price: 1200,
+        quantity: 1,
+      },
+      {
+        productId: 'P101',
+        name: 'Mouse',
+        category: 'Electronics',
+        price: 25,
+        quantity: 2,
+      },
+    ],
+    totalAmount: 1250,
+    status: 'shipped',
+    orderDate: '2025-02-15T10:00:00Z',
+  },
+  {
+    orderId: 2,
+    customer: {
+      id: 'C456',
+      name: 'Bob',
+      email: 'bob@example.com',
+      location: 'CA',
+    },
+    items: [
+      {
+        productId: 'P102',
+        name: 'Desk Chair',
+        category: 'Furniture',
+        price: 300,
+        quantity: 1,
+      },
+    ],
+    totalAmount: 300,
+    status: 'pending',
+    orderDate: '2025-02-16T12:30:00Z',
+  },
+  {
+    orderId: 3,
+    customer: {
+      id: 'C123',
+      name: 'Alice',
+      email: 'alice@example.com',
+      location: 'NY',
+    },
+    items: [
+      {
+        productId: 'P103',
+        name: 'Keyboard',
+        category: 'Electronics',
+        price: 45,
+        quantity: 1,
+      },
+      {
+        productId: 'P104',
+        name: 'Monitor',
+        category: 'Electronics',
+        price: 200,
+        quantity: 1,
+      },
+    ],
+    totalAmount: 245,
+    status: 'delivered',
+    orderDate: '2025-02-17T08:45:00Z',
+  },
+  {
+    orderId: 4,
+    customer: {
+      id: 'C789',
+      name: 'Charlie',
+      email: 'charlie@example.com',
+      location: 'TX',
+    },
+    items: [
+      {
+        productId: 'P105',
+        name: 'Tablet',
+        category: 'Electronics',
+        price: 500,
+        quantity: 2,
+      },
+    ],
+    totalAmount: 1000,
+    status: 'shipped',
+    orderDate: '2025-02-18T14:15:00Z',
+  },
+  {
+    orderId: 5,
+    customer: {
+      id: 'C456',
+      name: 'Bob',
+      email: 'bob@example.com',
+      location: 'CA',
+    },
+    items: [
+      {
+        productId: 'P106',
+        name: 'Smartphone',
+        category: 'Electronics',
+        price: 900,
+        quantity: 1,
+      },
+      {
+        productId: 'P101',
+        name: 'Mouse',
+        category: 'Electronics',
+        price: 25,
+        quantity: 3,
+      },
+    ],
+    totalAmount: 975,
+    status: 'shipped',
+    orderDate: '2025-02-19T16:45:00Z',
+  },
+  {
+    orderId: 6,
+    customer: {
+      id: 'C123',
+      name: 'Alice',
+      email: 'alice@example.com',
+      location: 'NY',
+    },
+    items: [
+      {
+        productId: 'P100',
+        name: 'Laptop',
+        category: 'Electronics',
+        price: 1200,
+        quantity: 1,
+      },
+      {
+        productId: 'P102',
+        name: 'Desk Chair',
+        category: 'Furniture',
+        price: 300,
+        quantity: 1,
+      },
+    ],
+    totalAmount: 1500,
+    status: 'pending',
+    orderDate: '2025-02-20T09:00:00Z',
+  },
+]
