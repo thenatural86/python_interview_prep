@@ -81,3 +81,7 @@ const customersWithMultiplePending = Object.entries(pendingOrders)
 
 console.log(pendingOrders)
 console.log(customersWithMultiplePending)
+
+//  Filter customers who have spent above $1000
+
+//  Compute average order value per customer
