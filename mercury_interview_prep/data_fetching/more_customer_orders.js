@@ -1,10 +1,11 @@
 import { data } from '../data.js'
 
+// 👶 Junior Software Engineer (SE1) Questions
 // 1️⃣ Find all orders that are still pending
 const pendingOrders = data.filter((order) => {
   return order.status === 'pending'
 })
-// console.log(pendingOrders)
+console.log('PENDING ORDERS', pendingOrders)
 
 // 2️⃣ Get the total revenue from all completed orders (shipped + delivered)
 
@@ -12,7 +13,7 @@ const completedOrdersRevenue = data
   .filter((order) => order.status !== 'pending')
   .reduce((acc, order) => acc + order.totalAmount, 0)
 
-// console.log(completedOrdersRevenue)
+console.log('COMPLETED ORDERS REVENUE', completedOrdersRevenue)
 
 // 3️⃣ Count the number of times each product was purchased
 const timesItemPurchased = data.reduce((acc, order) => {
@@ -24,8 +25,9 @@ const timesItemPurchased = data.reduce((acc, order) => {
   })
   return acc
 }, {})
-// console.log(timesItemPurchased)
+console.log('TIMES ITEM PURCHASED', timesItemPurchased)
 
+// 👨‍💻 Software Engineer (SE2) Questions
 // 4️⃣ Find the top customer by total spending
 const topSpender = data.reduce((acc, order) => {
   const { customer, totalAmount } = order
@@ -41,7 +43,7 @@ const highestSpender = Object.values(topSpender).sort(
   (a, b) => b.totalSpent - a.totalSpent
 )[0]
 
-console.log('TOP SPENDER', topSpender)
+// console.log('TOP SPENDER', topSpender)
 console.log('HIGHEST SPENDER', highestSpender)
 
 // 5️⃣ Compute the average order value per customer
@@ -78,3 +80,10 @@ const resultMultipleOrders = Object.values(multipleOrders).filter(
   (customer) => customer.orderCount > 1
 )
 console.log('MULTIPLE ORDERS', resultMultipleOrders)
+
+// 🚀 Senior Software Engineer (SE3) Questions
+// 7️⃣ Find the most frequently purchased product
+const mostFrequentProduct = Object.values(timesItemPurchased).sort(
+  (a, b) => b.quantity - a.quantity
+)[0]
+console.log('MOST FRQUENT PRODUCT', mostFrequentProduct)
