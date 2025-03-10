@@ -24,10 +24,14 @@ console.log('COMPLETED ORDERS REVENUE', completedOrdersRevenue)
 
 // 3️⃣ Count the number of times each product was purchased
 const timesItemPurchased = data.reduce((acc, order) => {
+  // .forEach() is used to iterate over order.items,
   order.items.forEach(({ productId, quantity, name }) => {
+    //  If the product does not exist in acc, we initialize it with:
     if (!acc[productId]) {
+      // name (to store product name) | quantity: 0 (starting count)
       acc[productId] = { name, quantity: 0 }
     }
+    //  Increments the quantity each time the product appears.
     acc[productId].quantity += quantity
   })
   return acc
